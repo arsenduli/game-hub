@@ -9,11 +9,11 @@ function App() {
         <NavBar />
       </GridItem>
       <Show above="lg">
-        <GridItem area={"aside"} bg={"dodgerblue"}>
+        <GridItem padding="20px" area={"aside"}>
           Aside
         </GridItem>
       </Show>
-      <GridItem area={"main"} bg={"gold"}>
+      <GridItem padding="20px" area={"main"}>
         Main
       </GridItem>
     </Grid>
