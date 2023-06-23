@@ -5,6 +5,7 @@ import {
   Image,
   Spinner,
   Button,
+  Heading,
 } from "@chakra-ui/react";
 import useData from "../hooks/useData";
 import { Genres } from "../hooks/useGenres";
@@ -20,6 +21,8 @@ const GenreList = ({selectedGenre ,  onSelectGenre }: Props) => {
   if (error) return null;
   if (isLoading) return <Spinner />;
   return (
+    <>
+    <Heading fontSize='2xl' marginBottom={3}>Genres</Heading>
     <List>
       {data.map((gener) => (
         <ListItem key={gener.id} paddingY="5px">
@@ -28,12 +31,15 @@ const GenreList = ({selectedGenre ,  onSelectGenre }: Props) => {
               boxSize="32px"
               src={getCroppedImageUrl(gener.image_background)}
               borderRadius={8}
-            ></Image>
+              objectFit='cover'
+              ></Image>
             <Button
               fontWeight={gener.id === selectedGenre?.id ? 'bold' : 'normal'}
               onClick={() => onSelectGenre(gener)}
               variant="link"
               fontSize="lg"
+              whiteSpace='normal'
+              textAlign='left'
             >
               {gener.name}
             </Button>
@@ -41,6 +47,7 @@ const GenreList = ({selectedGenre ,  onSelectGenre }: Props) => {
         </ListItem>
       ))}
     </List>
+      </>
   );
 };
 
